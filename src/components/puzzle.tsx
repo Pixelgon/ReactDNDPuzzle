@@ -1,15 +1,16 @@
-import { pieceType } from "../utlis/types";
+import { useState } from "react";
+import { puzzleData, puzzleType } from "../utlis/types";
+import { Piece } from "./Piece";
+import styles from "../styles/Puzzle.module.css"
 
-export interface IPuzzle {
-    rows: number;
-    collumns: number;
-    puzzle: pieceType[];
-}
+export const Puzzle: React.FC = () => {
+    const [puzzle, setPuzzle] = useState<puzzleType>(puzzleData);
 
-export const Puzzle: React.FC<IPuzzle> = ({rows, collumns, puzzle}) => {
     return (
-        <>
-        
-        </>
+        <div className={styles.puzzle} style={{gridTemplateColumns: `repeat(${puzzle.columns}, 1fr)`, gridTemplateRows: `repeat(${puzzle.rows}, 1fr)` }}>
+            {puzzle.pieces.map((piece, index) => (
+                <Piece key={index} piece={piece} />
+            ))}
+        </div>
     );
-}
+};

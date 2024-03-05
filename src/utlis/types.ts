@@ -8,14 +8,19 @@ export type pieceType = {
 
 export type puzzleType = {
     rows: number,
-    collumns: number,
-    puzzle: pieceType[],
+    columns: number,
+    pieces: pieceType[],
 }
+
+export const ItemTypes = {
+    PIECE: 'piece'
+};
+
 
 export const puzzleData = {   
     "rows": 4,
     "columns": 5,
-    "puzzle": [
+    "pieces": [
         {
             "url": "/img/img_001.jpg",
             "originX": 1,
