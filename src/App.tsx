@@ -1,15 +1,17 @@
-import { Puzzle } from './components/Puzzle'
+import { Puzzle } from './components/puzzle'
 import { DndProvider } from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
+import { PuzzleProvider } from './providers/PuzzleProvider';
 
 
 function App() {
-
   return (
     <>
-      <DndProvider backend={HTML5Backend}>
-        <Puzzle/>  
-      </DndProvider>
+      <PuzzleProvider>
+        <DndProvider backend={HTML5Backend}>
+            <Puzzle/>  
+        </DndProvider>  
+      </PuzzleProvider>
     </>
   )
 }
